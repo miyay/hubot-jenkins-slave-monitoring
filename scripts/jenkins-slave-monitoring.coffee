@@ -31,7 +31,7 @@ module.exports = (robot) ->
       if hash['offline'] == true
         robot.send {room: channel}, ":volcano: #{url} is Offline !!!"
 
-  robot.respond /^alive\?$/, (msg) ->
+  robot.respond /alive\?/i, (msg) ->
     for url, channel of targets
       putRoom(msg, url, channel)
 
