@@ -1,8 +1,14 @@
 # Description:
 #   Check Alive-Monitoring for Jenkins Slave PC.
 #
+# Configuration
+#   HUBOT_JENKINS_SLAVE_MONITORING_URL: Jenkins-Master URL
+#     e.g. 'http://localhost:8080'
+#   HUBOT_JENKINS_SLAVE_MONITORING_TARGE: Slave name and notified channel.
+#     e.g. '{"(master)": "#general"}'
+#
 # Commands:
-#   hubot alive? - View status
+#   hubot alive? - View status list
 #
 # Notes:
 #   require cron npm
@@ -12,10 +18,8 @@
 
 cronJob = require('cron').CronJob
 
-jenkins_url = ""
-targets = {
-  # "targetUrl": "noticeChannel"
-}
+jenkins_url = process.env.HUBOT_JENKINS_SLAVE_MONITORING_URL
+targets = JSON.parse process.env.HUBOT_JENKINS_SLAVE_MONITORING_TARGET
 
 module.exports = (robot) ->
   putRoom = (msg, url, channel) ->
