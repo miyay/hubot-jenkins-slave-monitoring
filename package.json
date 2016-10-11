@@ -1,7 +1,7 @@
 {
   "name": "hubot-jenkins-slave-monitoring",
   "version": "0.1.0",
-  "description": "hubot-jenkins-slave-monitoring",
+  "description": "Check Alive-Monitoring for Jenkins Slave PC.",
   "main": "index.coffee",
   "repository": {
     "type": "git",
