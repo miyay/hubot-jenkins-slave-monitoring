@@ -1,0 +1,23 @@
+{
+  "name": "hubot-jenkins-slave-monitoring",
+  "version": "0.1.0",
+  "description": "hubot-jenkins-slave-monitoring",
+  "main": "index.coffee",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/miyay/hubot-jenkins-slave-monitoring.git"
+  },
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "jenkins"
+  ],
+  "author": {
+    "name": "miyay"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miyay/hubot-jenkins-slave-monitoring/issues"
+  },
+  "homepage": "https://github.com/miyay/hubot-jenkins-slave-monitoring"
+}
