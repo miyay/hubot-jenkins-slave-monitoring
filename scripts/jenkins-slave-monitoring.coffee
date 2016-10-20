@@ -26,7 +26,7 @@ module.exports = (robot) ->
     request = robot.http("#{jenkins_url}/computer/#{url}/api/json").get()
     request (err, res, body) ->
       hash = JSON.parse body
-      msg.send "#{url} is #{if hash['offline'] then 'Offline :zzz:' else 'Online :bulb:'}"
+      msg.send "<#{url}|#{url}> is #{if hash['offline'] then 'Offline :zzz:' else 'Online :bulb:'}"
 
   putCron = (robot, url, channel) ->
     request = robot.http("#{jenkins_url}/computer/#{url}/api/json").get()
