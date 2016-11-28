@@ -23,17 +23,37 @@ targets = JSON.parse process.env.HUBOT_JENKINS_SLAVE_MONITORING_TARGET
 
 module.exports = (robot) ->
   putRoom = (msg, url, channel) ->
-    request = robot.http("#{jenkins_url}/computer/#{url}/api/json").get()
+    link = "#{jenkins_url}/computer/#{url}"
+    request = robot.http("#{link}/api/json").get()
     request (err, res, body) ->
       hash = JSON.parse body
-      msg.send "<#{url}|#{url}> is #{if hash['offline'] then 'Offline :zzz:' else 'Online :bulb:'}"
+      message = "<#{link}|#{url}> is #{if hash['offline'] then 'Offline :volcano:' else 'Online :bulb:'}"
+
+      data =
+        content:
+          pretext: message
+          fallback: message
+        channel: msg.envelope.room
+        username: robot.name
+        icon_emoji: ":#{robot.name}:"
+      robot.emit "slack.attachment", data
 
   putCron = (robot, url, channel) ->
-    request = robot.http("#{jenkins_url}/computer/#{url}/api/json").get()
+    link = "#{jenkins_url}/computer/#{url}"
+    request = robot.http("#{link}/api/json").get()
     request (err, res, body) ->
       hash = JSON.parse body
       if hash['offline'] == true
-        robot.send {room: channel}, ":volcano: #{url} is Offline !!!"
+        message = "<#{link}|#{url}> is Offline !!! :volcano:"
+
+        data =
+          content:
+            pretext: message
+            fallback: message
+          channel: channel
+          username: robot.name
+          icon_emoji: ":#{robot.name}:"
+        robot.emit "slack.attachment", data
 
   robot.respond /alive\?/i, (msg) ->
     for url, channel of targets

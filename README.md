@@ -1,6 +1,7 @@
 # Hubot Jenkins-Slave Monitoring
 
 JenkinsSlaveマシンの死活監視を行います。
+通知の関係でslackでのみ動きます。
 
 ## Installation
 ### Add package.json
