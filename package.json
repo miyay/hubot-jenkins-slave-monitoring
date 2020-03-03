@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/miyay/hubot-jenkins-slave-monitoring/issues"
   },
-  "homepage": "https://github.com/miyay/hubot-jenkins-slave-monitoring"
+  "homepage": "https://github.com/miyay/hubot-jenkins-slave-monitoring",
+  "dependencies": {
+    "cron": "^1.8.2"
+  }
 }
